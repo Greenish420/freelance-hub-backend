@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const ValidateToken = (req, res, next) => {
+const validateTokens = (req, res, next) => {
   const authHeader = req.headers.authorization;
   const token = authHeader && authHeader.split(" ")[1];
 
@@ -15,3 +15,5 @@ const ValidateToken = (req, res, next) => {
     return res.status(403).json({ message: "Invalid or expired token" });
   }
 };
+
+module.exports = validateTokens;

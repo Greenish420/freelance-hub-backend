@@ -87,3 +87,5 @@ const validationUtility = (type, input) => {
 
   return output;
 };
+
+module.exports = validationUtility;
