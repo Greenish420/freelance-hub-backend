@@ -1,5 +1,5 @@
 Marketplace Backend (V2) — Professional Architecture
-Author: [Your Name/Greenish]
+Author: [Greenish420]
 
 Date: March 1, 2026
 
