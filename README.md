@@ -1,11 +1,11 @@
-Marketplace Backend (V2) — Professional Architecture
+# Marketplace Backend (V2) — Professional Architecture
 Author: [Greenish420]
 
 Date: March 1, 2026
 
 Status: Completed (Core Logic & Refactoring)
 
-Overview
+## Overview
 This project represents a significant evolution from basic CRUD applications to a professional, scalable marketplace infrastructure. It is designed to handle the complex interactions between clients and freelancers, emphasizing secure authentication, relational data integrity, and a modular code structure.
 
 Architectural Standards & Scalability
@@ -19,30 +19,33 @@ Middleware Pipeline: Security and session management are handled via a reusable 
 
 Stateless Authentication: Utilizing JWT (JSON Web Tokens) ensures the backend remains stateless, allowing it to scale horizontally across multiple servers if traffic demands increase.
 
-Tech Stack
-Server: Node.js, Express.js
+## Tech Stack
 
-Database: MongoDB via Mongoose
+### Server: Node.js, Express.js
 
-Security: JWT, Bcrypt Hashing, CORS
+### Database: MongoDB via Mongoose
 
-Environment: Dotenv for secure variable management
+### Security: JWT, Bcrypt Hashing, CORS
 
-Data Architecture
+### Environment: Dotenv for secure variable management
+
+## Data Architecture
+
 The backend manages a sophisticated relational flow between three core entities:
 
-Account: Implements Role-Based Access Control (RBAC) with distinct permissions for client and freelancer roles.
+### Account: Implements Role-Based Access Control (RBAC) with distinct permissions for client and freelancer roles.
 
-Job: Managed by clients; includes status tracking and budget validation.
+### Job: Managed by clients; includes status tracking and budget validation.
 
-Proposal: Acts as the transactional bridge. It includes a unique compound index { jobId, freelancerId } at the database level to enforce business rules and prevent duplicate submissions.
+### Proposal: Acts as the transactional bridge. It includes a unique compound index { jobId, freelancerId } at the database level to enforce business rules and prevent duplicate submissions.
 
-Key Technical Features
-Automated Status Management: The hiring flow is architected to be atomic—accepting a proposal automatically closes the parent job and updates all competing proposals to a 'rejected' status.
+## Key Technical Features
 
-Centralized Validation: A dedicated utility layer handles input sanitization for emails, passwords, and currency, ensuring data consistency before reaching the persistence layer.
+### Automated Status Management: The hiring flow is architected to be atomic—accepting a proposal automatically closes the parent job and updates all competing proposals to a 'rejected' status.
 
-Sanitized Data Responses: All API returns are filtered to prevent sensitive information (like password hashes) from being sent to the client-side.
+### Centralized Validation: A dedicated utility layer handles input sanitization for emails, passwords, and currency, ensuring data consistency before reaching the persistence layer.
+
+### Sanitized Data Responses: All API returns are filtered to prevent sensitive information (like password hashes) from being sent to the client-side.
 
 ## API Documentation
 
